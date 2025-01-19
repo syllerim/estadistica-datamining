@@ -598,6 +598,24 @@ caret::postResample(pred=df_madrid_test$predict, obs= df_madrid_test$Square.Mete
 
 15. Si tuvieramos un anuncio de un apartamento para 6 personas (Accommodates), con 1 baño, con un precio de 80€/noche y 3 habitaciones en el barrio de Sol, con 3 camas y un review de 80. ¿Cuantos metros cuadrados tendría? Si tu modelo necesita algúna variable adicional puedes inventartela dentro del rango de valores del dataset. ¿Como varía sus metros cuadrados con cada habitación adicional?
 
+```{r}
+# Crear un dataframe con las características del apartamento
+apartamento <- data.frame(
+  Accommodates = 6,
+  Bathrooms = 1,
+  Price = 80,
+  Bedrooms = 3,
+  Beds = 3,
+  neighb_id = 1,
+  Review.Scores.Rating = 80,
+  Guests.Included = 4
+)
+
+# Predecir metros cuadrados
+metros_cuadrados <- predict(new_model, newdata = apartamento)
+cat("Metros cuadrados estimados:", metros_cuadrados, "m^2\n")
+```
+
 ------------------------------------------------------------------------
 
 16. Rellenar los Square.Meters con valor NA con el estimado con el modelo anterior.
