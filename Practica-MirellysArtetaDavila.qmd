@@ -586,7 +586,13 @@ cat("MSE:", mse, "\nR^2:", r2, "\n")
 
 ------------------------------------------------------------------------
 
-14. Evaluar la calidad de vuestro modelo
+14. Evaluar la calidad de vuestro modelos
+
+```{r}
+df_madrid_test$predict<-predict(new_model,df_madrid_test)
+caret::postResample(pred=df_madrid_test$predict, obs= df_madrid_test$Square.Meters)
+
+```
 
 ------------------------------------------------------------------------
 
